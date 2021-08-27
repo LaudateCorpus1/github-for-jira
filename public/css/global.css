@@ -6,6 +6,11 @@ p {
   margin: 0;
 }
 
+.pageContent {
+  padding: 20px;
+  min-height: 600px;
+}
+
 .headerImage {
   margin: 2em auto 1em;
   text-align: center;

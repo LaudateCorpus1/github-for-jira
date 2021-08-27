@@ -5,6 +5,13 @@
     <meta name="ap-local-base-url" content="{{localBaseUrl}}" />
     <meta name="public-url" content="{{APP_URL}}" />
     <title>{{title}}</title>
+    <link
+      rel="stylesheet"
+      href="/public/aui/aui-prototyping.css"
+      integrity="DTM1Q+8lU7SzJT+FWr0JFisCSZlwfM0GiAKYy7h1s9vIKa/CIh37s9NuOCqIOgK4tmqrjLK4NuWuIPUQNsikHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="/public/css-reset/bundle.css" media="all" />
     <link
       rel="stylesheet"
@@ -42,32 +49,36 @@
           <li>View deployment information within your linked Jira issue.</li>
           <li>View deployment pipelines over a timeline in your insights.</li>
         </ul>
-        <p>Even if your organization is still syncing, you can stat linking issue keys in your development work immediately.</p>
+        <p>Even if your organization is still syncing, you can stat linking
+          issue keys in your development work immediately.</p>
       </section>
 
-      <section class="jiraConfiguration content">
+      <section class="jiraConfiguration_content">
         {{#if hasConnections}}
-
-          <table class="jiraConfigurationTable aui">
-            <thead>
+          <table class="jiraConfiguration__table aui">
+            <thead class="jiraConfiguration__table__head">
               <tr>
-                <th>Connected organization</th>
-                <th>Repository Access</th>
-                <th>Sync Status
+                <th class="jiraConfiguration__table__head__title">Connected
+                  organization</th>
+                <th class="jiraConfiguration__table__head__title">Repository
+                  access</th>
+                {{! TODO  add on click and open modal }}
+                <th class="jiraConfiguration__table__head__title">Sync status
                   <span
-                    id="sync-status-modal-btn"
-                    class="sync-status-modal-btn"
-                  >ℹ️</span></th>
-                <th>Settings</th>
+                    class="getSubscription__info__icon aui-icon aui-iconfont-info-filled"
+                  >Information</span>
+                </th>
+                <th class="jiraConfiguration__table__head__title">Settings</th>
               </tr>
             </thead>
+
             <tbody>
               {{#each connections}}
                 <tr>
                   {{! Organization }}
-                  <td>
+                  <td class="jiraConfiguration__table__cell">
                     <img
-                      class="jiraConfigurationTable__avatar"
+                      class="jiraConfiguration__table__cell__avatar"
                       src="{{account.avatar_url}}"
                       height="24"
                       width="24"
@@ -75,7 +86,7 @@
                     {{account.login}}</td>
 
                   {{! Repos Synced }}
-                  <td>
+                  <td class="jiraConfiguration__table__cell">
                     {{#ifAllReposSynced numberOfSyncedRepos totalNumberOfRepos}}
                       <span>{{totalNumberOfRepos}}</span>
                     {{else}}
@@ -91,7 +102,7 @@
                   </td>
 
                   {{! Sync status }}
-                  <td>
+                  <td class="jiraConfiguration__table__cell">
                     {{#if syncWarning}}
                       <a
                         href="#trigger"
@@ -101,28 +112,55 @@
                       >
                         <span
                           id="{{id}}-status"
-                          class="jiraConfigurationTable__{{toLowerCase
+                          class="jiraConfiguration__table__{{toLowerCase
                               (replaceSpaceWithHyphen syncStatus)
                             }}
-                            jiraConfigurationTable__syncStatus"
+                            jiraConfiguration__table__syncStatus"
                         > {{syncStatus}} </span>*
                       </a>
                     {{else}}
                       <span
                         id="{{id}}-status"
-                        class="jiraConfigurationTable__{{toLowerCase
+                        class="jiraConfiguration__table__{{toLowerCase
                             (replaceSpaceWithHyphen syncStatus)
                           }}
-                          jiraConfigurationTable__syncStatus"
+                          jiraConfiguration__table__syncStatus"
                       > {{syncStatus}} </span>
                     {{/if}}
                   </td>
 
                   {{! Settings }}
-                  <td headers="basic-username">...</td>
+                  <td class="jiraConfiguration__table__cell">...</td>
                 </tr>
 
               {{/each}}
+
+              {{! Need new designs to include error messaging when an org returns an error }}
+              {{!-- {{#each failedConnections}}
+              <tr>
+                <td class="error-message">
+                  #{{id}}
+                  {{#if deleted}}
+                    This installation seems to be removed from GitHub but not
+                    from the database
+                  {{else}}
+                    There was an error getting the information of this
+                    installation
+                  {{/if}}
+                </td>
+                <td>
+                  <span title="{{installedAt.absolute}}">
+                    {{installedAt.relative}}
+                  </span>
+                </td>
+                <td>
+                  <button
+                    class="ak-button ak-button__appearance-link delete-connection-link"
+                    data-installation-id="{{id}}"
+                  >Remove</button>
+                </td>
+              </tr>
+            {{/each}} --}}
 
             </tbody>
           </table>

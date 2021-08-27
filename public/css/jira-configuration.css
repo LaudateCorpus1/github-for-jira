@@ -1,5 +1,5 @@
 .jiraConfiguration {
-  padding: 2.5em;
+  padding: 3.5em 4.5em;
 }
 
 .jiraConfiguration__header {
@@ -20,53 +20,79 @@
 }
 
 .jiraConfiguration__info__list {
-    margin: 0.5em auto;
-    padding-left: 2em;
+  margin: 0.5em auto;
+  padding-left: 2em;
 }
 
-.jiraConfigurationTable {
+.jiraConfiguration_content {
+  margin-top: 2em;
+}
+
+.jiraConfiguration__table {
   table-layout: fixed;
   width: 100%;
 }
 
-.jiraConfigurationTable__avatar {
+.jiraConfiguration__table__head {
+  color: #6b778c;
+  font-size: 0.8rem;
+}
+
+.jiraConfiguration__table__head__title {
+  font-weight: normal;
+}
+
+.jiraConfiguration__table__head__title:not(:last-child) {
+  width: 30%;
+}
+
+.jiraConfiguration__table__head__title:last-child {
+  text-align: right;
+}
+
+.jiraConfiguration__table__cell {
+  /* override aui styling */
+  border-bottom: none !important;
+}
+
+.jiraConfiguration__table__cell__avatar {
   border-radius: 4px;
   height: 24px;
   vertical-align: middle;
   width: 24px;
 }
 
-.jiraConfigurationTable__connectionLinks > :first-child {
+.jiraConfiguration__table__connectionLinks > :first-child {
   padding-left: 0;
 }
 
-.jiraConfigurationTable__syncStatus {
+.jiraConfiguration__table__syncStatus {
   border-radius: 5px;
   font-weight: bold;
   padding: 0.2em 0.3em;
 }
 
-.jiraConfigurationTable__pending {
+.jiraConfiguration__table__pending {
   background-color: #dfe1e6;
   color: #42526e;
 }
 
-.jiraConfigurationTable__in-progress {
+.jiraConfiguration__table__in-progress {
   background-color: #deebff;
   color: #0747a6;
 }
 
-.jiraConfigurationTable__complete {
+.jiraConfiguration__table__complete {
   background-color: #e3fcef;
   color: #006644;
 }
 
-.jiraConfigurationTable__failed {
+.jiraConfiguration__table__failed {
   background-color: #ffebe6;
   color: #bf2600;
 }
 
-.jiraConfigurationTable__refresh {
+.jiraConfiguration__table__refresh {
   font-weight: bold;
 }
 
