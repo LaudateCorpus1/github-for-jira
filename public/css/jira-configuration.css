@@ -15,11 +15,10 @@
 .jiraConfiguration__header__title__cta {
   font-size: 1rem;
   font-weight: normal;
-  letter-spacing: 1.1px;
   padding: 0 1em;
 }
 
-.jiraConfiguration__info__list {
+.jiraConfiguration__content__list {
   margin: 0.5em auto;
   padding-left: 2em;
 }
@@ -29,6 +28,7 @@
 }
 
 .jiraConfiguration__table {
+  color: #172b4d;
   table-layout: fixed;
   width: 100%;
 }
@@ -40,6 +40,8 @@
 
 .jiraConfiguration__table__head__title {
   font-weight: normal;
+  /* override aui styling */
+  padding: 0.3em 0 !important;
 }
 
 .jiraConfiguration__table__head__title:not(:last-child) {
@@ -53,6 +55,12 @@
 .jiraConfiguration__table__cell {
   /* override aui styling */
   border-bottom: none !important;
+  /* override aui styling */
+  padding: 0.8em 0 !important;
+}
+
+.jiraConfiguration__table__cell:nth-child(3) {
+  display: flex;
 }
 
 .jiraConfiguration__table__cell__avatar {
@@ -62,12 +70,17 @@
   width: 24px;
 }
 
+.jiraConfiguration__table__cell__orgName {
+  margin-left: 0.2em;
+}
+
 .jiraConfiguration__table__connectionLinks > :first-child {
   padding-left: 0;
 }
 
 .jiraConfiguration__table__syncStatus {
   border-radius: 5px;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0.2em 0.3em;
 }

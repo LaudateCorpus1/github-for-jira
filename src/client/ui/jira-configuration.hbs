@@ -19,6 +19,7 @@
       media="all"
     />
     <link rel="stylesheet" href="/public/css/styles.css" media="all" />
+    <link rel="stylesheet" href="/public/css/global.css" media="all" />
     <link
       rel="stylesheet"
       href="/public/css/jira-configuration.css"
@@ -39,22 +40,20 @@
         {{/if}}
       </header>
 
-      <section class="jiraConfiguration__info">
-        <p>
-          After you connect your GitHub account or organization to Jira and
-          include issue keys in branch names, commit messages, and pull request
-          titles, you will be able to:</p>
-        <ul class="jiraConfiguration__info__list">
-          <li>Create branches and pull requests from your Jira project.</li>
-          <li>View deployment information within your linked Jira issue.</li>
-          <li>View deployment pipelines over a timeline in your insights.</li>
-        </ul>
-        <p>Even if your organization is still syncing, you can stat linking
-          issue keys in your development work immediately.</p>
-      </section>
-
       <section class="jiraConfiguration_content">
         {{#if hasConnections}}
+          <p>
+            After you connect your GitHub account or organization to Jira and
+            include issue keys in branch names, commit messages, and pull
+            request titles, you will be able to:</p>
+          <ul class="jiraConfiguration__content__list">
+            <li>Create branches and pull requests from your Jira project.</li>
+            <li>View deployment information within your linked Jira issue.</li>
+            <li>View deployment pipelines over a timeline in your insights.</li>
+          </ul>
+          <p>Even if your organization is still syncing, you can stat linking
+            issue keys in your development work immediately.</p>
+
           <table class="jiraConfiguration__table aui">
             <thead class="jiraConfiguration__table__head">
               <tr>
@@ -78,27 +77,39 @@
                   {{! Organization }}
                   <td class="jiraConfiguration__table__cell">
                     <img
-                      class="jiraConfiguration__table__cell__avatar"
+                      class="jiraConfiguration__table__cell__avatar delete-connection-link"
                       src="{{account.avatar_url}}"
                       height="24"
                       width="24"
+                      data-installation-id="{{id}}"
                     />
-                    {{account.login}}</td>
+                    <span
+                      class="jiraConfiguration__table__cell__orgName"
+                    >{{account.login}}</span>
+                  </td>
 
                   {{! Repos Synced }}
                   <td class="jiraConfiguration__table__cell">
-                    {{#ifAllReposSynced numberOfSyncedRepos totalNumberOfRepos}}
-                      <span>{{totalNumberOfRepos}}</span>
-                    {{else}}
-                      <span>{{numberOfSyncedRepos}}
-                        /
-                        {{totalNumberOfRepos}}</span>
-                    {{/ifAllReposSynced}}
                     {{#if isGlobalInstall}}
-                      <span>(All)</span>
+                      <span>All repos</span>
                     {{else}}
-                      <span>(Selected)</span>
+                      <span>Only select repos</span>
                     {{/if}}
+
+                    <span class="jiraConfiguration__table__syncCount">
+                      {{ifAllReposSynced
+                        numberOfSyncedRepos
+                        totalNumberOfRepos
+                      }}
+                    </span>
+
+                    <a href="/github/subscriptions/{{id}}">
+                      <span
+                        class="jiraConfiguration__table__edit aui-icon aui-icon-small aui-iconfont-new-edit"
+                      >
+                        Edit
+                      </span>
+                    </a>
                   </td>
 
                   {{! Sync status }}
@@ -116,7 +127,9 @@
                               (replaceSpaceWithHyphen syncStatus)
                             }}
                             jiraConfiguration__table__syncStatus"
-                        > {{syncStatus}} </span>*
+                        >
+                          {{syncStatus}}
+                        </span>*
                       </a>
                     {{else}}
                       <span
@@ -125,7 +138,14 @@
                             (replaceSpaceWithHyphen syncStatus)
                           }}
                           jiraConfiguration__table__syncStatus"
-                      > {{syncStatus}} </span>
+                      >
+                        {{syncStatus}}
+                      </span>
+                      {{#if (inProgressSync syncStatus)}}
+                        <div class="jiraConfiguration__loaderContainer">
+                          <aui-spinner size="small"></aui-spinner>
+                        </div>
+                      {{/if}}
                     {{/if}}
                   </td>
 
@@ -192,6 +212,13 @@
     <!-- DO NOT TOUCH!!! THIS IS NEEDED FOR CONNECT OR ELSE IT WILL CAUSE AN ERROR -->
     <script
       src="https://connect-cdn.atl-paas.net/all.js"
+      nonce="{{nonce}}"
+    ></script>
+    <script
+      src="/public/aui/aui-prototyping.js"
+      integrity="sha512-DkENIkhNP5r+sfHUC5hhFAzApGNR5HTu1fzymBBhXZma4zytOUQh8qhz5xc3nSbSQfdYI6qdI281YwUNmubEMw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
       nonce="{{nonce}}"
     ></script>
   </body>

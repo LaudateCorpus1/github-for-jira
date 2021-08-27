@@ -104,17 +104,6 @@
     margin: 0;
 }
 
-.getConfiguration__orgContent__numberOfRepos {
-    background-color: #f4f5f7;
-    border-radius: 12px;
-    margin: auto 0.5em;
-    padding: 0.7em 0.6em;
-}
-
-.getConfiguration__orgContent_edit {
-    color: #43526E;
-}
-
 .getConfiguration__orgContent__connectBtn,
 .getConfiguration__orgContent__connectBtn--disabled,
 .getConfiguration__orgContent__connectedMsg,
@@ -140,12 +129,6 @@
 .getConfiguration__orgContent__connectBtn:focus:active,
 .getConfiguration__orgContent__connectBtn:hover:active {
     background-color: #ebecf0;
-}
-
-.getConfiguration__loaderContainer {
-    display: flex;
-    justify-content: center;
-    width: 5.5em;
 }
 
 .getConfiguration__noOrganizations {

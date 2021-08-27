@@ -6,6 +6,12 @@ p {
   margin: 0;
 }
 
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
 .pageContent {
   padding: 20px;
   min-height: 600px;
@@ -75,8 +81,45 @@ p {
   padding: 0.8em 0;
 }
 
-p {
-  margin: 0;
+.getConfiguration__orgContent__numberOfRepos,
+.jiraConfiguration__table__syncCount {
+  background-color: #dfe1e6;
+  border-radius: 12px;
+}
+
+.getConfiguration__orgContent__numberOfRepos {
+  margin: auto 0.5em;
+  padding: 0.7em 0.6em;
+}
+
+.jiraConfiguration__table__syncCount {
+  margin: auto 0.3em;
+  padding: 0.1em 0.5em;
+}
+
+.getConfiguration__loaderContainer,
+.jiraConfiguration__loaderContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.getConfiguration__loaderContainer {
+  width: 5.5em;
+}
+
+.jiraConfiguration__loaderContainer {
+  width: 2em;
+}
+
+.getConfiguration__orgContent__edit,
+.jiraConfiguration__table__edit {
+  color: #43526e;
+}
+
+.jiraConfiguration__table__edit:before:hover,
+.jiraConfiguration__table__edit:before:active,
+.jiraConfiguration__table__edit:before:focus {
+  text-decoration: none;
 }
 
 @media (max-width: 540px) {
