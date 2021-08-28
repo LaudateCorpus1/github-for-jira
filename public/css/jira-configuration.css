@@ -49,14 +49,70 @@
 }
 
 .jiraConfiguration__table__head__title:last-child {
+  /* override aui styling */
+  padding-right: 1em !important;
   text-align: right;
 }
 
-.jiraConfiguration__table__cell {
+.jiraConfiguration__table__cell,
+.jiraConfiguration__table__cell__settings {
   /* override aui styling */
   border-bottom: none !important;
-  /* override aui styling */
+  border-top: none !important;
   padding: 0.8em 0 !important;
+}
+
+.jiraConfiguration__table__cell__settings {
+  /* override aui styling */
+  padding: 0 !important;
+  text-align: right !important;
+}
+
+.jiraConfiguration__table__cell__settings__ellipsis {
+  background-color: #fff;
+  border: none;
+  box-shadow: none;
+  color: #7a869a;
+  font-size: 3rem;
+  height: 1em;
+  margin: 0.1em 0.3em;
+  position: relative;
+  top: 0em;
+  width: 1em;
+}
+
+.jiraConfiguration__table__cell__settings__ellipsisSpan {
+  position: absolute;
+  right: 0.15em;
+  top: -0.5em;
+}
+
+.aui-dropdown2-trigger:not(.aui-dropdown2-trigger-arrowless) {
+  /* override aui styling */
+  padding-right: 0.2em !important;
+}
+
+.aui-button.active:not(.aui-button-link) {
+  background-color: #263858 !important;
+  color: #fff !important;
+}
+
+.jiraConfiguration__table__cell__settings__ellipsis::before {
+  /* override aui styling */
+  content: none !important;
+}
+
+#settings-dropdown {
+  margin-top: 0 !important;
+  padding: 1em;
+}
+
+.aui-dropdown2 a {
+  padding: 0.4em 0 !important;
+}
+
+.aui-dropdown2 a:last-of-type {
+    padding-bottom: 0 !important;
 }
 
 .jiraConfiguration__table__cell:nth-child(3) {
