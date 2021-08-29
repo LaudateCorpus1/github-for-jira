@@ -39,6 +39,7 @@ $(".configure-connection-link").click(function (event) {
 
 $(".delete-connection-link").click(function (event) {
 	event.preventDefault();
+	const installationId = $(event.target).data("installation-id");
 
 	window.AP.context.getToken(function (token) {
 		$.ajax({
@@ -47,7 +48,7 @@ $(".delete-connection-link").click(function (event) {
 				params.get("xdm_e")
 			)}`,
 			data: {
-				installationId: $(event.target).data("installation-id"),
+				installationId,
 				jwt: token,
 			},
 			success: function (data) {
@@ -60,17 +61,19 @@ $(".delete-connection-link").click(function (event) {
 $(".sync-connection-link").click(function (event) {
 	event.preventDefault();
 	const installationId = $(event.target).data("installation-id");
+	const jiraHost = $(event.target).data("jira-host");
+	const csrfToken = document.getElementById("_csrf").value;
 
 	window.AP.context.getToken(function (token) {
 		$.ajax({
 			type: "POST",
 			url: `/jira/sync`,
 			data: {
-				installationId: installationId,
-				jiraHost: $(event.target).data("jira-host"),
-				syncType: document.getElementById(`${installationId}-sync-type`).value,
+				installationId,
+				jiraHost,
+				syncType: "full",
 				jwt: token,
-				_csrf: document.getElementById("_csrf").value,
+				_csrf: csrfToken,
 			},
 			success: function (data) {
 				AP.navigator.reload();

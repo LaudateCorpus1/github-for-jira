@@ -128,6 +128,11 @@ export default (octokitApp: App): Express => {
 		(syncStatus) => syncStatus === "IN PROGRESS"
 	);
 
+	hbs.registerHelper(
+		"failedSync",
+		(syncStatus) => syncStatus === "FAILED"
+	);
+
 	hbs.registerHelper("connectedStatus", (syncStatus) =>
 		syncStatus === "COMPLETE" ? "Connected" : "Connect"
 	);

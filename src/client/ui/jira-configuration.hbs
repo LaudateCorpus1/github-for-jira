@@ -18,7 +18,6 @@
       href="/public/atlassian-ui-kit/bundle.css"
       media="all"
     />
-    <link rel="stylesheet" href="/public/css/styles.css" media="all" />
     <link rel="stylesheet" href="/public/css/global.css" media="all" />
     <link
       rel="stylesheet"
@@ -119,7 +118,7 @@
                         href="#trigger"
                         data-ak-tooltip="{{syncWarning}}"
                         data-ak-tooltip-position="top"
-                        class="muted-link"
+                        class="jiraConfiguration__table__syncWarningLink"
                       >
                         <span
                           id="{{id}}-status"
@@ -144,6 +143,13 @@
                       {{#if (inProgressSync syncStatus)}}
                         <div class="jiraConfiguration__loaderContainer">
                           <aui-spinner size="small"></aui-spinner>
+                        </div>
+                      {{/if}}
+                      {{#if (failedSync syncStatus)}}
+                        <div class="jiraConfiguration__retryContainer">
+                          <span class="jiraConfiguration__retry sync-connection-link" data-jira-host="{{ ../host }}" data-installation-id="{{ id }}">&#x21bb;</span>
+                          <input type="hidden" id="_csrf" name="_csrf" value="{{../csrfToken}}">
+                          <button class="jiraConfiguration__retryMsg">Retry</button>
                         </div>
                       {{/if}}
                     {{/if}}
@@ -182,40 +188,12 @@
                         >
                           Disconnect
                         </button>
-
                       </aui-section>
                     </aui-dropdown-menu>
                   </td>
                 </tr>
 
               {{/each}}
-
-              {{! Need new designs to include error messaging when an org returns an error }}
-              {{!-- {{#each failedConnections}}
-              <tr>
-                <td class="error-message">
-                  #{{id}}
-                  {{#if deleted}}
-                    This installation seems to be removed from GitHub but not
-                    from the database
-                  {{else}}
-                    There was an error getting the information of this
-                    installation
-                  {{/if}}
-                </td>
-                <td>
-                  <span title="{{installedAt.absolute}}">
-                    {{installedAt.relative}}
-                  </span>
-                </td>
-                <td>
-                  <button
-                    class="ak-button ak-button__appearance-link delete-connection-link"
-                    data-installation-id="{{id}}"
-                  >Remove</button>
-                </td>
-              </tr>
-            {{/each}} --}}
 
             </tbody>
           </table>

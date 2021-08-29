@@ -62,6 +62,45 @@
   padding: 0.8em 0 !important;
 }
 
+.jiraConfiguration__table__syncWarningLink {
+  color: #586069 !important;
+}
+
+.jiraConfiguration__table__syncWarningLink:hover {
+  color: #0366d6 !important;
+  text-decoration: none;
+}
+
+.jiraConfiguration__retryContainer {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.jiraConfiguration__retry {
+  cursor: pointer;
+  font-weight: normal;
+  margin-left: 0.2em;
+  position: absolute;
+  transform: scaleX(-1) rotate(30deg);
+}
+
+.jiraConfiguration__retryMsg {
+  background-color: #172b4d;
+  border-radius: 3px;
+  color: #fff;
+  display: none;
+  font-size: 1rem;
+  left: -0.8em;
+  padding: 0.3em;
+  position: absolute;
+  right: em;
+  top: -2em;
+}
+
+.jiraConfiguration__retry:hover ~ .jiraConfiguration__retryMsg {
+  display: block;
+}
+
 .jiraConfiguration__table__cell__settings {
   /* override aui styling */
   padding: 0 !important;
