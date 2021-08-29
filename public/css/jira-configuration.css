@@ -29,6 +29,8 @@
 
 .jiraConfiguration__table {
   color: #172b4d;
+	/* override aui styling */
+	margin-top: 2.5em !important;
   table-layout: fixed;
   width: 100%;
 }
