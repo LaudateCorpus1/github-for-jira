@@ -57,8 +57,8 @@ export default class Subscription extends Sequelize.Model {
 	static async getAllForHost(host: string): Promise<Subscription[]> {
 		return Subscription.findAll({
 			where: {
-				jiraHost: host,
-			},
+				jiraHost: host
+			}
 		});
 	}
 
@@ -67,8 +67,8 @@ export default class Subscription extends Sequelize.Model {
 	): Promise<Subscription[]> {
 		return Subscription.findAll({
 			where: {
-				gitHubInstallationId: installationId,
-			},
+				gitHubInstallationId: installationId
+			}
 		});
 	}
 
@@ -76,41 +76,42 @@ export default class Subscription extends Sequelize.Model {
 		installationIds: number[] = [],
 		statusTypes: string[] = ["FAILED", "PENDING", "ACTIVE"],
 		offset = 0,
-		limit?: number
+		limit?: number,
 	): Promise<Subscription[]> {
+
 		const andFilter = [];
 
 		if (statusTypes?.length > 0) {
 			andFilter.push({
 				syncStatus: {
-					[Op.in]: statusTypes,
-				},
+					[Op.in]: statusTypes
+				}
 			});
 		}
 
 		if (installationIds?.length > 0) {
 			andFilter.push({
 				gitHubInstallationId: {
-					[Op.in]: _.uniq(installationIds),
-				},
+					[Op.in]: _.uniq(installationIds)
+				}
 			});
 		}
 
 		return Subscription.findAll({
 			where: {
-				[Op.and]: andFilter,
+				[Op.and]: andFilter
 			},
 			limit,
 			offset,
-			order: [["updatedAt", "DESC"]],
+			order: [["updatedAt", "DESC"]]
 		});
 	}
 
 	static getAllForClientKey(clientKey: string): Promise<Subscription[]> {
 		return Subscription.findAll({
 			where: {
-				jiraClientKey: clientKey,
-			},
+				jiraClientKey: clientKey
+			}
 		});
 	}
 
@@ -121,8 +122,8 @@ export default class Subscription extends Sequelize.Model {
 		return Subscription.findOne({
 			where: {
 				jiraHost,
-				gitHubInstallationId,
-			},
+				gitHubInstallationId
+			}
 		});
 	}
 
@@ -133,8 +134,8 @@ export default class Subscription extends Sequelize.Model {
 		return Subscription.findOne({
 			where: {
 				jiraClientKey: clientKey,
-				gitHubInstallationId: installationId,
-			},
+				gitHubInstallationId: installationId
+			}
 		});
 	}
 
@@ -143,8 +144,8 @@ export default class Subscription extends Sequelize.Model {
 			where: {
 				gitHubInstallationId: payload.installationId,
 				jiraHost: payload.host,
-				jiraClientKey: payload.clientKey,
-			},
+				jiraClientKey: payload.clientKey
+			}
 		});
 
 		await Subscription.findOrStartSync(subscription);
@@ -156,8 +157,8 @@ export default class Subscription extends Sequelize.Model {
 		await Subscription.destroy({
 			where: {
 				gitHubInstallationId: payload.installationId,
-				jiraHost: payload.host,
-			},
+				jiraHost: payload.host
+			}
 		});
 	}
 
@@ -177,8 +178,8 @@ export default class Subscription extends Sequelize.Model {
 				repoSyncState: {
 					installationId,
 					jiraHost,
-					repos: {},
-				},
+					repos: {}
+				}
 			});
 			logger.info("Starting Jira sync");
 			return queues.discovery.add({ installationId, jiraHost });

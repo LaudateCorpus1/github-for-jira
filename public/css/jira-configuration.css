@@ -29,8 +29,8 @@
 
 .jiraConfiguration__table {
   color: #172b4d;
-	/* override aui styling */
-	margin-top: 2.5em !important;
+  /* override aui styling */
+  margin-top: 2.5em !important;
   table-layout: fixed;
   width: 100%;
 }
@@ -145,9 +145,9 @@
 }
 
 .aui-dropdown2 {
-	/* override aui styling */
-	margin-top: 0 !important;
-	padding: 1em;
+  /* override aui styling */
+  margin-top: 0 !important;
+  padding: 1em;
 }
 
 .jiraConfiguration__table__cell__settings__header {
@@ -259,14 +259,12 @@
   }
 }
 
-@media (max-width: 1040px) {
-  .jiraConfiguration__table__cell__settings__ellipsis {
-    right: 0.3em !important;
-  }
-}
-
-@media (max-width: 992px) {
+@media (max-width: 800px) {
   .jiraConfiguration {
     padding: 2em;
+  }
+
+  .jiraConfiguration__table__cell__settings__ellipsis {
+    right: 0.2em !important;
   }
 }
