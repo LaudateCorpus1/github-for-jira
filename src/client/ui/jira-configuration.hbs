@@ -77,7 +77,7 @@
                   {{! Organization }}
                   <td class="jiraConfiguration__table__cell">
                     <img
-                      class="jiraConfiguration__table__cell__avatar delete-connection-link"
+                      class="jiraConfiguration__table__cell__avatar"
                       src="{{account.avatar_url}}"
                       height="24"
                       width="24"
@@ -162,16 +162,27 @@
                     </button>
 
                     <aui-dropdown-menu id="settings-dropdown">
-                      <h6>Organization</h6>
-                      <aui-section>
-                        <aui-item-link
-                          class="jiraConfiguration__table__cell__settings__link"
-                          href=""
-                        >Configure</aui-item-link>
-                        <aui-item-link
-                          class="jiraConfiguration__table__cell__settings__link"
-                          href=""
-                        >Disconnect</aui-item-link>
+                      <h6
+                        class="jiraConfiguration__table__cell__settings__header"
+                      >Organization</h6>
+                      <aui-section
+                        class="jiraConfiguration__table__cell__settings__links"
+                      >
+                        <a
+                          class="jiraConfiguration__table__cell__settings__link configure-connection-link"
+                          href="{{html_url}}"
+                          data-installation-link="{{html_url}}"
+                          target="_blank"
+                        >
+                          Configure
+                        </a>
+                        <button
+                          class="jiraConfiguration__table__cell__settings__link delete-connection-link"
+                          data-installation-id="{{id}}"
+                        >
+                          Disconnect
+                        </button>
+
                       </aui-section>
                     </aui-dropdown-menu>
                   </td>

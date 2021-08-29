@@ -75,8 +75,9 @@
   color: #7a869a;
   font-size: 3rem;
   height: 1em;
-  margin: 0.1em 0.3em;
+  margin: 0.1em 0.4em;
   position: relative;
+  right: 0 !important;
   top: 0em;
   width: 1em;
 }
@@ -103,16 +104,36 @@
 }
 
 #settings-dropdown {
+  /* override aui styling */
   margin-top: 0 !important;
   padding: 1em;
 }
 
-.aui-dropdown2 a {
+.jiraConfiguration__table__cell__settings__header {
+  margin-bottom: 0.5em;
+}
+
+.jiraConfiguration__table__cell__settings__links {
+  /* override aui styling */
+  margin-top: 0 !important;
+}
+
+.jiraConfiguration__table__cell__settings__link {
+  /* override aui styling */
   padding: 0.4em 0 !important;
 }
 
-.aui-dropdown2 a:last-of-type {
-    padding-bottom: 0 !important;
+.jiraConfiguration__table__cell__settings__link:not(:last-child) {
+  /* override aui styling */
+  padding-bottom: 0.7em 0 !important;
+}
+
+.jiraConfiguration__table__cell__settings__link:active,
+.jiraConfiguration__table__cell__settings__link:focus {
+  /* override aui styling */
+  background-color: #ecedf0 !important;
+  box-shadow: none !important;
+  color: #455570 !important;
 }
 
 .jiraConfiguration__table__cell:nth-child(3) {
@@ -165,6 +186,10 @@
   font-weight: bold;
 }
 
+.jiraConfiguration__table__cell__settings__header {
+  color: #6b778c;
+}
+
 .jiraConfiguration__empty {
   margin: auto;
   max-width: 570px;
@@ -184,4 +209,23 @@
 .jiraConfiguration__empty__image {
   width: 100%;
   max-width: 332px;
+}
+
+/* Media queries */
+@media (max-width: 1530px) {
+  .jiraConfiguration__table__cell__settings__ellipsis {
+    right: 0;
+  }
+}
+
+@media (max-width: 1040px) {
+  .jiraConfiguration__table__cell__settings__ellipsis {
+    right: 0.3em !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .jiraConfiguration {
+    padding: 2em;
+  }
 }
