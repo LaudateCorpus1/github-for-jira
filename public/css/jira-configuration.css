@@ -142,10 +142,10 @@
   content: none !important;
 }
 
-#settings-dropdown {
-  /* override aui styling */
-  margin-top: 0 !important;
-  padding: 1em;
+.aui-dropdown2 {
+	/* override aui styling */
+	margin-top: 0 !important;
+	padding: 1em;
 }
 
 .jiraConfiguration__table__cell__settings__header {
