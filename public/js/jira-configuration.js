@@ -84,3 +84,26 @@ $(".sync-connection-link").click(function (event) {
 		});
 	});
 });
+
+const syncStatusBtn = document.getElementById("sync-status-modal-btn");
+const syncStatusModal = document.getElementById("sync-status-modal");
+const syncStatusCloseBtn = document.getElementById("status-close");
+
+if (syncStatusBtn != null) {
+	syncStatusBtn.onclick = function () {
+		syncStatusModal.style.display = "block";
+	};
+}
+
+if (syncStatusCloseBtn != null) {
+	syncStatusCloseBtn.onclick = function () {
+		syncStatusModal.style.display = "none";
+	};
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target.className === 'jiraConfiguration__syncRetryModalOverlay') {
+    syncStatusModal.style.display = 'none'
+  }
+}
