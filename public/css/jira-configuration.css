@@ -5,7 +5,6 @@
   padding: 3.5em 4.5em;
 }
 
-
 .jiraConfiguration__header {
   display: flex;
   justify-content: space-between;
@@ -357,21 +356,4 @@
 .jiraConfiguration__empty__image {
   width: 100%;
   max-width: 332px;
-}
-
-/* Media queries */
-@media (max-width: 1530px) {
-  .jiraConfiguration__table__cell__settings__ellipsis {
-    right: 0;
-  }
-}
-
-@media (max-width: 800px) {
-  .jiraConfiguration {
-    padding: 2em;
-  }
-
-  .jiraConfiguration__table__cell__settings__ellipsis {
-    right: 0.2em !important;
-  }
 }

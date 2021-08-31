@@ -121,10 +121,3 @@ a:focus {
 .jiraConfiguration__table__edit:before:focus {
   text-decoration: none;
 }
-
-/* Media Queries */
-@media (max-width: 540px) {
-  .getConfiguration__tableHeader {
-    padding-bottom: 0;
-  }
-}
