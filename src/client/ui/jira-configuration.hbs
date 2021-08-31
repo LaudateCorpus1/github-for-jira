@@ -170,7 +170,9 @@
                     <aui-dropdown-menu id="settings-dropdown-{{id}}">
                       <h6
                         class="jiraConfiguration__table__cell__settings__header"
-                      >Organization</h6>
+                      >
+                        <span class="jiraConfiguration__table__cell__settings__headerItem">Organization</span>
+                      </h6>
                       <aui-section
                         class="jiraConfiguration__table__cell__settings__links"
                       >
@@ -180,13 +182,27 @@
                           data-installation-link="{{html_url}}"
                           target="_blank"
                         >
-                          Configure
+                          <span class="jiraConfiguration__table__cell__settings__menuItem">Configure</span>
+                        </a>
+                        <a
+                          class="jiraConfiguration__table__cell__settings__link"
+                          href=""
+                          target="_blank"
+                        >
+                           <span class="jiraConfiguration__table__cell__settings__menuItem">Resync</span>
+                        </a>
+                        <a
+                          class="jiraConfiguration__table__cell__settings__link"
+                          href=""
+                          target="_blank"
+                        >
+                           <span class="jiraConfiguration__table__cell__settings__menuItem">Manage Jira subscriptions</span>
                         </a>
                         <button
                           class="jiraConfiguration__table__cell__settings__link delete-connection-link"
                           data-installation-id="{{id}}"
                         >
-                          Disconnect
+                           <span class="jiraConfiguration__table__cell__settings__menuItem">Disconnect</span>
                         </button>
                       </aui-section>
                     </aui-dropdown-menu>

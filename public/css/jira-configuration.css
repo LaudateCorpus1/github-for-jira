@@ -147,11 +147,27 @@
 .aui-dropdown2 {
   /* override aui styling */
   margin-top: 0 !important;
-  padding: 1em;
+  padding: 1em 0;
+}
+
+.jiraConfiguration__table__cell__settings__headerItem {
+  padding: 0 1.3em;
+}
+
+.jiraConfiguration__table__cell__settings__menuItem {
+  padding: 0 0.3em;
+}
+
+.jiraConfiguration__table__cell__settings__headerItem {
+  font-size: 0.8rem;
+}
+
+.jiraConfiguration__table__cell__settings__menuItem {
+  font-size: 1rem;
 }
 
 .jiraConfiguration__table__cell__settings__header {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 
 .jiraConfiguration__table__cell__settings__links {
@@ -159,14 +175,19 @@
   margin-top: 0 !important;
 }
 
-.jiraConfiguration__table__cell__settings__link {
+.jiraConfiguration__table__cell__settings__link,
+.aui-dropdown2 button {
   /* override aui styling */
-  padding: 0.4em 0 !important;
+  padding-top: 0.6em 0 !important;
 }
 
 .jiraConfiguration__table__cell__settings__link:not(:last-child) {
   /* override aui styling */
-  padding-bottom: 0.7em 0 !important;
+  padding-bottom: 0.6em 0 !important;
+}
+
+.jiraConfiguration__table__cell__settings__link:hover {
+  background-color: #e9edf0 !important;
 }
 
 .jiraConfiguration__table__cell__settings__link:active,
