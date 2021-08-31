@@ -103,7 +103,7 @@ if (syncStatusCloseBtn != null) {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target.className === 'jiraConfiguration__syncRetryModalOverlay') {
-    syncStatusModal.style.display = 'none'
-  }
-}
+	if (event.target.className === "jiraConfiguration__syncRetryModalOverlay") {
+		syncStatusModal.style.display = "none";
+	}
+};
