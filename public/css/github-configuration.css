@@ -1,29 +1,29 @@
-.getConfiguration__logout__container {
+.gitHubConfiguration__logout__container {
   align-items: flex-end;
   display: flex;
   flex-direction: column;
 }
 
-.getConfiguration__logout__link {
+.gitHubConfiguration__logout__link {
   cursor: pointer;
   color: #0366d6;
 }
 
-.getConfiguration__logout__name {
+.gitHubConfiguration__logout__name {
   font-weight: bold;
 }
 
-.getConfiguration {
+.gitHubConfiguration {
   margin: auto;
   max-width: 740px;
   height: 100vh;
 }
 
-.getConfiguration__header {
+.gitHubConfiguration__header {
   font-weight: 500 !important;
 }
 
-.getConfiguration__wrapper {
+.gitHubConfiguration__wrapper {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -31,23 +31,23 @@
   margin: 2em auto;
 }
 
-.getConfiguration__tableHeader {
+.gitHubConfiguration__tableHeader {
   color: #6b778c;
   display: flex;
   flex-direction: row;
   font-size: 0.9rem;
 }
 
-.getConfiguration__tableHeader__label {
+.gitHubConfiguration__tableHeader__label {
   align-self: flex-end;
   margin-bottom: 0.7em;
 }
 
-.getConfiguration__tableHeader__label:first-child {
+.gitHubConfiguration__tableHeader__label:first-child {
   flex: 3;
 }
 
-.getConfiguration__tableHeader__label:last-child {
+.gitHubConfiguration__tableHeader__label:last-child {
   flex: 4;
 }
 
@@ -66,90 +66,90 @@
 }
 
 .githubOrgs__table__row,
-.getConfiguration__orgContent:nth-child(2) {
+.gitHubConfiguration__orgContent:nth-child(2) {
   display: flex;
   flex-direction: row;
 }
 
-.getConfiguration__orgContent__account,
-.getConfiguration__orgContent__repoAccess,
-.getConfiguration__orgContent__connect {
+.gitHubConfiguration__orgContent__account,
+.gitHubConfiguration__orgContent__repoAccess,
+.gitHubConfiguration__orgContent__connect {
   align-items: center;
   color: #213658;
   display: flex;
 }
 
-.getConfiguration__orgContent:last-child {
+.gitHubConfiguration__orgContent:last-child {
   display: flex;
   justify-content: flex-end;
 }
 
-.getConfiguration__orgContent__account,
-.getConfiguration__orgContent__repoAccess {
+.gitHubConfiguration__orgContent__account,
+.gitHubConfiguration__orgContent__repoAccess {
   flex: 3;
 }
 
-.getConfiguration__orgContent__connect {
+.gitHubConfiguration__orgContent__connect {
   display: flex;
   flex: 1;
   justify-content: flex-end;
 }
 
-.getConfiguration__orgContent__avatar {
+.gitHubConfiguration__orgContent__avatar {
   margin-right: 0.5em;
   width: 25px;
 }
 
-.getConfiguration__orgContent__repoSelection {
+.gitHubConfiguration__orgContent__repoSelection {
   margin: 0;
 }
 
-.getConfiguration__orgContent__connectBtn,
-.getConfiguration__orgContent__connectBtn--disabled,
-.getConfiguration__orgContent__connectedMsg,
-.getConfiguration__loaderContainer {
+.gitHubConfiguration__orgContent__connectBtn,
+.gitHubConfiguration__orgContent__connectBtn--disabled,
+.gitHubConfiguration__orgContent__connectedMsg,
+.gitHubConfiguration__loaderContainer {
   border: 0;
   border-radius: 3px;
   color: #42526e;
   margin-right: 0.5em;
 }
 
-.getConfiguration__orgContent__connectBtn {
+.gitHubConfiguration__orgContent__connectBtn {
   background-color: #f4f5f7;
   padding: 1em 0.8em;
 }
 
-.getConfiguration__orgContent__connectedMsg {
+.gitHubConfiguration__orgContent__connectedMsg {
   font-style: italic;
 }
 
-.getConfiguration__orgContent__connectBtn:hover,
-.getConfiguration__orgContent__connectBtn:focus,
-.getConfiguration__orgContent__connectBtn:active,
-.getConfiguration__orgContent__connectBtn:focus:active,
-.getConfiguration__orgContent__connectBtn:hover:active {
+.gitHubConfiguration__orgContent__connectBtn:hover,
+.gitHubConfiguration__orgContent__connectBtn:focus,
+.gitHubConfiguration__orgContent__connectBtn:active,
+.gitHubConfiguration__orgContent__connectBtn:focus:active,
+.gitHubConfiguration__orgContent__connectBtn:hover:active {
   background-color: #ebecf0;
 }
 
-.getConfiguration__noOrganizations {
+.gitHubConfiguration__noOrganizations {
   color: #172b4d;
 }
 
-.getConfiguration__connectNewOrg {
+.gitHubConfiguration__connectNewOrg {
   color: #172b4d;
   font-weight: 500;
   padding: 0.8em 0;
 }
 
-.getConfiguration__connectNewOrg__plus {
+.gitHubConfiguration__connectNewOrg__plus {
   font-size: 1.1rem;
   padding: 0 0.7em 0 0.5em;
   transform: scale(1.5);
 }
 
-.getConfiguration__connectNewOrg:hover,
-.getConfiguration__connectNewOrg:focus,
-.getConfiguration__connectNewOrg:active {
+.gitHubConfiguration__connectNewOrg:hover,
+.gitHubConfiguration__connectNewOrg:focus,
+.gitHubConfiguration__connectNewOrg:active {
   background-color: #f5f6f7;
   border-radius: 3px;
   color: #172b4d;
