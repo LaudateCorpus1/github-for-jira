@@ -126,7 +126,8 @@
     "ts-node-dev": "^1.1.8"
   },
   "volta": {
-    "node": "14.17.0"
+    "node": "14.17.0",
+    "npm": "6.14.7"
   },
   "jest": {
     "testEnvironment": "node",
