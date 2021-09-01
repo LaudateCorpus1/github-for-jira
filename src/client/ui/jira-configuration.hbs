@@ -240,14 +240,14 @@
                           href=""
                           target="_blank"
                         >
-                           <span class="jiraConfiguration__table__cell__settings__menuItem">Resync</span>
-                        </a>
-                        <a
-                          class="jiraConfiguration__table__cell__settings__link"
-                          href=""
-                          target="_blank"
-                        >
-                           <span class="jiraConfiguration__table__cell__settings__menuItem">Manage Jira subscriptions</span>
+                            <span
+                              class="jiraConfiguration__table__cell__settings__menuItem sync-connection-link"
+                              data-jira-host="{{ ../host }}"
+                              data-installation-id="{{ id }}"
+                            >
+                              Resync
+                            </span>
+                            <input type="hidden" id="_csrf" name="_csrf" value="{{../csrfToken}}">
                         </a>
                         <button
                           class="jiraConfiguration__table__cell__settings__link delete-connection-link"
