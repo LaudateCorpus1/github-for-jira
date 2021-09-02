@@ -164,6 +164,7 @@
 }
 
 .jiraConfiguration__retryMsg {
+  font-size: 1rem;
   left: -0.8em;
   top: -2em;
 }

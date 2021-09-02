@@ -27,7 +27,7 @@ export default async (context: Context, jiraClient, util): Promise<void> => {
 		username: context.payload.pull_request.user.login
 	});
 
-	logger.info("AUTHOR: ", author)
+	logger.info("AUTHOR: ", author)	
 	logger.info("CONTEXT: ", context)
 
 	const jiraPayload = transformPullRequest(

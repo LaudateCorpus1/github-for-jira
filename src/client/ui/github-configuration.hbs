@@ -100,7 +100,6 @@
                     <button class="gitHubConfiguration__orgContent__connectBtn--disabled aui-button" aria-disabled="true" disabled>
                       Connect
                     </button>
-                     <div class="gitHubConfiguration__notAdminMsg">You are not admin</div>
                     {{else}}
                     {{#if (isNotConnected syncStatus)}}
                       <button
@@ -120,6 +119,9 @@
                       </p>
                     {{/if}}
                   {{/if}}
+                     <div class="gitHubConfiguration__notAdminMsg">
+                       You need repository admin permissions to install this app. Please contact your admin.
+                     </div>
                 </div>
 
               </div>

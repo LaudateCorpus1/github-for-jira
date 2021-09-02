@@ -130,7 +130,12 @@
 }
 
 .gitHubConfiguration__notAdminMsg {
-  left: 1em;
+  font-size: 0.7rem;
+  height: 3em;
+  left: 7.3em;
+  line-height: 1;
+  padding: 1em;
+  width: 18em;
 }
 
 .gitHubConfiguration__orgContent__connectBtn--disabled:hover ~ .gitHubConfiguration__notAdminMsg {
