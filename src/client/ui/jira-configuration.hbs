@@ -233,7 +233,7 @@
                           data-installation-link="{{html_url}}"
                           target="_blank"
                         >
-                          <span class="jiraConfiguration__table__cell__settings__menuItem">Configure</span>
+                          Configure
                         </a>
                         <a
                           class="jiraConfiguration__table__cell__settings__link"
@@ -241,7 +241,7 @@
                           target="_blank"
                         >
                             <span
-                              class="jiraConfiguration__table__cell__settings__menuItem sync-connection-link"
+                              class="sync-connection-link"
                               data-jira-host="{{ ../host }}"
                               data-installation-id="{{ id }}"
                             >
@@ -249,12 +249,7 @@
                             </span>
                             <input type="hidden" id="_csrf" name="_csrf" value="{{../csrfToken}}">
                         </a>
-                        <button
-                          class="jiraConfiguration__table__cell__settings__link delete-connection-link"
-                          data-installation-id="{{ id }}"
-                        >
-                           <span class="jiraConfiguration__table__cell__settings__menuItem">Disconnect</span>
-                        </button>
+                        <button class="jiraConfiguration__table__cell__settings__link delete-connection-link" data-installation-id="{{ id }}">Disconnect</button>
                       </aui-section>
                     </aui-dropdown-menu>
                   </td>

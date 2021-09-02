@@ -13,8 +13,8 @@ const syncStatus = (syncStatus) =>
 	syncStatus === "ACTIVE" ? "IN PROGRESS" : syncStatus;
 
 const sendFailedStatusMetrics = (installationId: string): void => {
-	const syncError = "No updates in the last 15 minutes";
-	logger.warn(syncError, `Sync failed: installationId=${installationId}`);
+	const syncError = "No updates in the last 15 minutes"
+	logger.warn({installationId, error: syncError}, "Sync failed");
 
 	Sentry.setExtra("Installation FAILED", syncError);
 	Sentry.captureException(syncError);
@@ -82,10 +82,7 @@ export default async (
 	try {
 		const jiraHost = req.session.jiraHost;
 
-		req.log.info(
-			"Received jira configuration page request for Jira Host %s",
-			jiraHost
-		);
+		req.log.info("Received jira configuration page request");
 
 		const { client } = res.locals;
 		const subscriptions = await Subscription.getAllForHost(jiraHost);
