@@ -119,9 +119,22 @@
                         Connect
                       </button>
                   {{/if}}
-                     <p class="gitHubConfiguration__notAdminMsg">
-                       You need repository admin permissions to install this app. Please contact your admin.
-                     </p>
+
+                  <a class="gitHubConfiguration__orgContent__settingsContainer" href='/github/subscriptions/{{id}}'>
+                    <span class="gitHubConfiguration__orgContent__settings aui-icon aui-icon-medium aui-iconfont-settings">
+                      Manage Jira Subscriptions
+                    </span>
+                  </a>
+
+                  {{!-- Hidden unless non-admin hovers on connect button --}}
+                  <p class="gitHubConfiguration__notAdminMsg">
+                    You need repository admin permissions to install this app. Please contact your admin.
+                  </p>
+
+                  {{!-- Hidden unless user hovers over settings icon --}}
+                  <p class="gitHubConfiguration__manageSubscriptions">
+                    Manage Jira subscriptions
+                  </p>
                 </div>
 
               </div>

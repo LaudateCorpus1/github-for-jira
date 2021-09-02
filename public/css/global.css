@@ -1,4 +1,4 @@
-/* body { */
+body {
   overflow: hidden;
 }
 
@@ -117,7 +117,8 @@ a:focus {
 }
 
 .jiraConfiguration__retryMsg,
-.gitHubConfiguration__notAdminMsg {
+.gitHubConfiguration__notAdminMsg,
+.gitHubConfiguration__manageSubscriptions {
   background-color: #172b4d;
   border-radius: 3px;
   display: none;

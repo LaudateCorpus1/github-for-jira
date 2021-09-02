@@ -105,6 +105,10 @@
   margin: 0;
 }
 
+.gitHubConfiguration__orgContent__numberOfRepos {
+  margin: auto 0.5em !important;
+}
+
 .gitHubConfiguration__orgContent__connectedMsg,
 .gitHubConfiguration__loaderContainer {
   border: 0;
@@ -129,14 +133,18 @@
 }
 
 .gitHubConfiguration__notAdminMsg {
-  color: #b4bbc5;
-  font-size: 0.7rem;
   height: 3.8em;
   left: 10.3em;
-  line-height: 1.4;
-  padding: 0.5em;
   top: -0.3em;
   width: 22em;
+}
+
+.gitHubConfiguration__notAdminMsg,
+.gitHubConfiguration__manageSubscriptions {
+  color: #b4bbc5;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  padding: 0.5em;
 }
 
 .gitHubConfiguration__orgContent__connectBtn--disabled:hover
@@ -146,14 +154,45 @@
 
 .gitHubConfiguration__orgContent__connectedMsg {
   font-style: italic;
+  margin: 0 0.5em !important;
 }
 
 .gitHubConfiguration__orgContent__connectBtn:hover,
 .gitHubConfiguration__orgContent__connectBtn:focus,
 .gitHubConfiguration__orgContent__connectBtn:active,
 .gitHubConfiguration__orgContent__connectBtn:focus:active,
-.gitHubConfiguration__orgContent__connectBtn:hover:active {
+.gitHubConfiguration__orgContent__connectBtn:hover:active,
+.gitHubConfiguration__orgContent__settingsContainer:hover,
+.gitHubConfiguration__orgContent__settingsContainer:focus,
+.gitHubConfiguration__orgContent__settingsContainer:active,
+.gitHubConfiguration__orgContent__settingsContainer:focus:active,
+.gitHubConfiguration__orgContent__settingsContainer:hover:active {
   background-color: #ebecf0;
+}
+
+.gitHubConfiguration__orgContent__settingsContainer {
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0.45em;
+}
+
+.gitHubConfiguration__orgContent__settingsContainer,
+.gitHubConfiguration__orgContent__settingsContainer:hover,
+.gitHubConfiguration__orgContent__settingsContainer:active,
+.gitHubConfiguration__orgContent__settingsContainer:focus {
+  color: inherit
+}
+
+.gitHubConfiguration__orgContent__settingsContainer:hover
+  ~ .gitHubConfiguration__manageSubscriptions {
+  display: block;
+}
+
+.gitHubConfiguration__manageSubscriptions {
+  height: 2.3em;
+  left: 3em;
+  top: -2.6em;
+  width: 13.8em;
 }
 
 .gitHubConfiguration__noOrganizations {
