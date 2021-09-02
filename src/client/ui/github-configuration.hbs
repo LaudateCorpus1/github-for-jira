@@ -56,7 +56,7 @@
       <div class="Box">
         <div class="gitHubConfiguration__wrapper">
           <div class="gitHubConfiguration__tableHeader">
-            <p class="gitHubConfiguration__tableHeader__label">Unconnected organizations with Jira app</p>
+            <p class="gitHubConfiguration__tableHeader__label">GitHub organization</p>
             {{#if installations}}
               <p class="gitHubConfiguration__tableHeader__label">Repository access</p>
             {{/if}}
@@ -120,11 +120,19 @@
                       </button>
                   {{/if}}
 
-                  <a class="gitHubConfiguration__orgContent__settingsContainer" href='/github/subscriptions/{{id}}'>
-                    <span class="gitHubConfiguration__orgContent__settings aui-icon aui-icon-medium aui-iconfont-settings">
-                      Manage Jira Subscriptions
-                    </span>
-                  </a>
+                  {{#if admin}}
+                    <a class="gitHubConfiguration__orgContent__settingsContainer" href='/github/subscriptions/{{id}}'>
+                      <span class="gitHubConfiguration__orgContent__settings aui-icon aui-icon-medium aui-iconfont-settings">
+                        Manage Jira Subscriptions
+                      </span>
+                    </a>
+                    {{else}}
+                     <div class="gitHubConfiguration__orgContent__settingsContainer--disabled">
+                      <span class="gitHubConfiguration__orgContent__settings aui-icon aui-icon-medium aui-iconfont-settings">
+                        Manage Jira Subscriptions
+                      </span>
+                    </div>
+                  {{/if}}
 
                   {{!-- Hidden unless non-admin hovers on connect button --}}
                   <p class="gitHubConfiguration__notAdminMsg">

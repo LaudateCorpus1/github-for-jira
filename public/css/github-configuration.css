@@ -128,13 +128,14 @@
   color: #42526e;
 }
 
-.gitHubConfiguration__orgContent__connectBtn--disabled:hover {
+.gitHubConfiguration__orgContent__connectBtn--disabled:hover,
+.gitHubConfiguration__orgContent__settingsContainer--disabled:hover {
   cursor: not-allowed;
 }
 
 .gitHubConfiguration__notAdminMsg {
   height: 3.8em;
-  left: 10.3em;
+  left: 8.3em;
   top: -0.3em;
   width: 22em;
 }
@@ -170,17 +171,22 @@
   background-color: #ebecf0;
 }
 
-.gitHubConfiguration__orgContent__settingsContainer {
+.gitHubConfiguration__orgContent__settingsContainer,
+.gitHubConfiguration__orgContent__settingsContainer--disabled {
   border-radius: 3px;
   cursor: pointer;
   padding: 0.45em;
+}
+
+.gitHubConfiguration__orgContent__settingsContainer--disabled:hover {
+  background-color: #f5f6f8;
 }
 
 .gitHubConfiguration__orgContent__settingsContainer,
 .gitHubConfiguration__orgContent__settingsContainer:hover,
 .gitHubConfiguration__orgContent__settingsContainer:active,
 .gitHubConfiguration__orgContent__settingsContainer:focus {
-  color: inherit
+  color: inherit;
 }
 
 .gitHubConfiguration__orgContent__settingsContainer:hover
