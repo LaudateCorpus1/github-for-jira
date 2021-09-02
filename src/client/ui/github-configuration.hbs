@@ -84,7 +84,7 @@
                     class="gitHubConfiguration__orgContent__numberOfRepos"
                   >{{numberOfRepos}}</p>
                   {{#if admin}}
-                    <a href="/github/subscriptions/{{id}}">
+                    <a href="{{html_url}}">
                       <span
                         class="gitHubConfiguration__orgContent__edit aui-icon aui-icon-small aui-iconfont-new-edit"
                       >
@@ -97,9 +97,14 @@
                 {{! Connect }}
                 <div class="gitHubConfiguration__orgContent__connect org__cell">
                   {{#if admin}}
+                    <button class="gitHubConfiguration__orgContent__connectBtn--disabled aui-button" aria-disabled="true" disabled>
+                      Connect
+                    </button>
+                     <div class="gitHubConfiguration__notAdminMsg">You are not admin</div>
+                    {{else}}
                     {{#if (isNotConnected syncStatus)}}
                       <button
-                        class="install-link btn-info gitHubConfiguration__orgContent__connectBtn"
+                        class="gitHubConfiguration__orgContent__connectBtn aui-button install-link"
                         data-installation-id="{{id}}"
                         type="submit"
                       >
@@ -124,7 +129,7 @@
               <p class="gitHubConfiguration__noOrganizations">No GitHub organizations with Jira installed.</p>
             {{/unless}}
           </div>
-          
+
           <a
             class="gitHubConfiguration__connectNewOrg"
             href="{{info.html_url}}/installations/new"

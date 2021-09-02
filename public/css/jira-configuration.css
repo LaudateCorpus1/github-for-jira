@@ -164,15 +164,7 @@
 }
 
 .jiraConfiguration__retryMsg {
-  background-color: #172b4d;
-  border-radius: 3px;
-  color: #fff;
-  display: none;
-  font-size: 1rem;
   left: -0.8em;
-  padding: 0.3em;
-  position: absolute;
-  right: em;
   top: -2em;
 }
 

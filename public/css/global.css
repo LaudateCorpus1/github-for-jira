@@ -116,6 +116,17 @@ a:focus {
   color: #43526e;
 }
 
+.jiraConfiguration__retryMsg,
+.gitHubConfiguration__notAdminMsg {
+  background-color: #172b4d;
+  border-radius: 3px;
+  color: #fff;
+  display: none;
+  font-size: 1rem;
+  padding: 0.3em;
+  position: absolute;
+}
+
 .jiraConfiguration__table__edit:before:hover,
 .jiraConfiguration__table__edit:before:active,
 .jiraConfiguration__table__edit:before:focus {

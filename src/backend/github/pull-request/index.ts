@@ -3,6 +3,7 @@ import issueKeyParser from "jira-issue-key-parser";
 import { isEmpty } from "../../../common/isEmpty";
 
 import { Context } from "probot/lib/context";
+import logger  from "../../../config/logger";
 
 export default async (context: Context, jiraClient, util): Promise<void> => {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,6 +23,12 @@ export default async (context: Context, jiraClient, util): Promise<void> => {
 			"Can't retrieve reviewers."
 		);
 	}
+	const author = await context.github.users.getByUsername({
+		username: context.payload.pull_request.user.login
+	});
+
+	logger.info("AUTHOR: ", author)
+	logger.info("CONTEXT: ", context)
 
 	const jiraPayload = transformPullRequest(
 		context.payload,

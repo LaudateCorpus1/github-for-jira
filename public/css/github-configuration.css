@@ -93,6 +93,7 @@
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  position: relative;
 }
 
 .gitHubConfiguration__orgContent__avatar {
@@ -104,19 +105,36 @@
   margin: 0;
 }
 
-.gitHubConfiguration__orgContent__connectBtn,
-.gitHubConfiguration__orgContent__connectBtn--disabled,
 .gitHubConfiguration__orgContent__connectedMsg,
 .gitHubConfiguration__loaderContainer {
   border: 0;
   border-radius: 3px;
   color: #42526e;
+  padding: 1em 0.8em;
+}
+
+.gitHubConfiguration__orgContent__connectBtn,
+.gitHubConfiguration__orgContent__connectBtn--disabled,
+.gitHubConfiguration__orgContent__connectedMsg,
+.gitHubConfiguration__loaderContainer {
   margin-right: 0.5em;
 }
 
 .gitHubConfiguration__orgContent__connectBtn {
   background-color: #f4f5f7;
-  padding: 1em 0.8em;
+  color: #42526e;
+}
+
+.gitHubConfiguration__orgContent__connectBtn--disabled:hover {
+  cursor: not-allowed;
+}
+
+.gitHubConfiguration__notAdminMsg {
+  left: 1em;
+}
+
+.gitHubConfiguration__orgContent__connectBtn--disabled:hover ~ .gitHubConfiguration__notAdminMsg {
+  display: block;
 }
 
 .gitHubConfiguration__orgContent__connectedMsg {
