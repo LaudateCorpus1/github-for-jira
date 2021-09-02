@@ -110,7 +110,6 @@
   border: 0;
   border-radius: 3px;
   color: #42526e;
-  padding: 1em 0.8em;
 }
 
 .gitHubConfiguration__orgContent__connectBtn,
@@ -130,15 +129,18 @@
 }
 
 .gitHubConfiguration__notAdminMsg {
+  color: #b4bbc5;
   font-size: 0.7rem;
-  height: 3em;
-  left: 7.3em;
-  line-height: 1;
-  padding: 1em;
-  width: 18em;
+  height: 3.8em;
+  left: 10.3em;
+  line-height: 1.4;
+  padding: 0.5em;
+  top: -0.3em;
+  width: 22em;
 }
 
-.gitHubConfiguration__orgContent__connectBtn--disabled:hover ~ .gitHubConfiguration__notAdminMsg {
+.gitHubConfiguration__orgContent__connectBtn--disabled:hover
+  ~ .gitHubConfiguration__notAdminMsg {
   display: block;
 }
 

@@ -120,9 +120,7 @@ a:focus {
 .gitHubConfiguration__notAdminMsg {
   background-color: #172b4d;
   border-radius: 3px;
-  color: #fff;
-  /* display: none; */
-  padding: 0.3em;
+  display: none;
   position: absolute;
 }
 

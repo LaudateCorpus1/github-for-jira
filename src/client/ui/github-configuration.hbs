@@ -97,10 +97,6 @@
                 {{! Connect }}
                 <div class="gitHubConfiguration__orgContent__connect org__cell">
                   {{#if admin}}
-                    <button class="gitHubConfiguration__orgContent__connectBtn--disabled aui-button" aria-disabled="true" disabled>
-                      Connect
-                    </button>
-                    {{else}}
                     {{#if (isNotConnected syncStatus)}}
                       <button
                         class="gitHubConfiguration__orgContent__connectBtn aui-button install-link"
@@ -118,10 +114,14 @@
                         {{connectedStatus syncStatus}}
                       </p>
                     {{/if}}
+                    {{else}}
+                      <button class="gitHubConfiguration__orgContent__connectBtn--disabled aui-button" aria-disabled="true" disabled>
+                        Connect
+                      </button>
                   {{/if}}
-                     <div class="gitHubConfiguration__notAdminMsg">
+                     <p class="gitHubConfiguration__notAdminMsg">
                        You need repository admin permissions to install this app. Please contact your admin.
-                     </div>
+                     </p>
                 </div>
 
               </div>

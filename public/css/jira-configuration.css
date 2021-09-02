@@ -164,8 +164,10 @@
 }
 
 .jiraConfiguration__retryMsg {
+  color: #fff;
   font-size: 1rem;
   left: -0.8em;
+  padding: 0.3em;
   top: -2em;
 }
 
