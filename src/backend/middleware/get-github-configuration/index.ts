@@ -5,6 +5,8 @@ import enhanceOctokit from "../../../config/enhance-octokit";
 import app from "../../worker/app";
 import { getInstallation } from "../get-jira-configuration";
 import { decodeSymmetric, getAlgorithm } from "atlassian-jwt";
+import logger  from "../../../config/logger";
+import _ from "lodash";
 
 const getConnectedStatus = (
 	installationsWithSubscriptions: any,
@@ -102,15 +104,32 @@ export default async (req: Request, res: Response, next: NextFunction): Promise<
 			const { data: { installations } } = (await github.apps.listInstallationsForAuthenticatedUser());
 			const installationsWithAdmin = await getInstallationsWithAdmin({ installations, login });
 			const { data: info } = (await client.apps.getAuthenticated());
-			const connectedInstallations = await installationConnectedStatus(
+			const installationsWithAppInstalled = await installationConnectedStatus(
 				req.session.jiraHost,
 				client,
 				installationsWithAdmin
 			);
 
+			// take installationsWithAppInstalled and check for connected orgs. Send to end of list
+			const installationsByConnectedStatus = _.findIndex(installationsWithAppInstalled, ['syncStatus', 'COMPLETE'])
+
+			if (installationsByConnectedStatus !== -1) {
+				installationsWithAppInstalled.push(installationsWithAppInstalled[installationsByConnectedStatus])
+				installationsWithAppInstalled.splice(installationsByConnectedStatus, 1)
+			}
+			// Find the index by property title, that should equal to "Unknown".
+			// var installationsByConnectedStatus = _.findIndex(installationsWithAppInstalled, ['title', 'Unknown']);
+			// // Make sure the key exists.
+			// if (installationsByConnectedStatus !== -1) {
+			//   // Clone the value to the bottom of the array.
+			//   installationsWithAppInstalled.push(installationsWithAppInstalled[installationsByConnectedStatus]);
+			//   // Remove the original key.
+			//   installationsWithAppInstalled.splice(installationsByConnectedStatus, 1);
+			// }
+			logger.info("installationsWithAppInstalled: ", installationsWithAppInstalled)
 			return res.render("github-configuration.hbs", {
 				csrfToken: req.csrfToken(),
-				installations: connectedInstallations,
+				installations: installationsWithAppInstalled,
 				jiraHost: req.session.jiraHost,
 				nonce: res.locals.nonce,
 				info,
