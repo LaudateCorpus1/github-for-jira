@@ -49,6 +49,14 @@ Object {
         "value": "GitHub Actions",
       },
     },
+    "jiraRemoteLinkInfoProvider": Object {
+      "homeUrl": "https://github.com/features/security",
+      "key": "github-remotelinks-integration",
+      "logoUrl": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "name": Object {
+        "value": "GitHub Security Reports"
+      },
+    },
     "jiraDevelopmentTool": Object {
       "application": Object {
         "value": "GitHub",
