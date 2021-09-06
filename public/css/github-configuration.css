@@ -163,11 +163,7 @@
 .gitHubConfiguration__orgContent__connectBtn:active,
 .gitHubConfiguration__orgContent__connectBtn:focus:active,
 .gitHubConfiguration__orgContent__connectBtn:hover:active,
-.gitHubConfiguration__orgContent__settingsContainer:hover,
-.gitHubConfiguration__orgContent__settingsContainer:focus,
-.gitHubConfiguration__orgContent__settingsContainer:active,
-.gitHubConfiguration__orgContent__settingsContainer:focus:active,
-.gitHubConfiguration__orgContent__settingsContainer:hover:active {
+.gitHubConfiguration__orgContent__settingsContainer:hover {
   background-color: #ebecf0;
 }
 

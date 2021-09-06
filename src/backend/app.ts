@@ -121,7 +121,7 @@ export default (octokitApp: App): Express => {
 		repository_selection === "all" ? "All repos" : "Only select repos"
 	);
 
-	hbs.registerHelper("isNotConnected", (syncStatus) => syncStatus == null);
+	hbs.registerHelper("isNotConnected", (syncStatus) => syncStatus == null || syncStatus === "FAILED");
 
 	hbs.registerHelper(
 		"inProgressSync",

@@ -219,9 +219,10 @@ export default class Subscription extends Sequelize.Model {
 	// This may happen when an error causes a sync to die without setting the status to 'FAILED'
 	hasInProgressSyncFailed(): boolean {
 		if (this.syncStatus === "ACTIVE") {
-			const fifteenMinutesAgo = new Date(Date.now() - 15 * 60 * 1000);
+			// const fifteenMinutesAgo = new Date(Date.now() - 15 * 60 * 1000);
 
-			return this.updatedAt < fifteenMinutesAgo;
+			// return this.updatedAt < fifteenMinutesAgo;
+			return true;
 		} else {
 			return false;
 		}
