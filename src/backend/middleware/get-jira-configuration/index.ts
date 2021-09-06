@@ -20,7 +20,7 @@ const sendFailedStatusMetrics = (installationId: string): void => {
 	Sentry.captureException(syncError);
 
 	statsd.increment(metricSyncStatus.failed);
-}
+};
 
 export async function getInstallation(client, subscription) {
 	const id = subscription.gitHubInstallationId;
@@ -46,14 +46,39 @@ export async function getInstallation(client, subscription) {
 	}
 }
 
-const formatDate = function(date) {
+const formatDate = function (date) {
 	return {
 		relative: moment(date).fromNow(),
-		absolute: format(date, "MMMM D, YYYY h:mm a")
+		absolute: format(date, "MMMM D, YYYY h:mm a"),
 	};
 };
 
-export default async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+// An installation fails to connect when a user uninstalls the app in GitHub.
+// We need to remove the subscription from the database.
+const removeFailedConnections = (req: Request, installations: any, jiraHost: string) => {
+	installations
+		.filter((response) => !!response.error)
+		.forEach(async (connection) => {
+			try {
+				const payload = {
+					installationId: connection.id,
+					host: jiraHost,
+					clientKey: req.session.jwt,
+				};
+
+				await Subscription.uninstall(payload);
+			} catch (err) {
+				const deleteSubscriptionError = `Failed to delete subscription: ${err}`;
+				logger.error(deleteSubscriptionError);
+			}
+		});
+};
+
+export default async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+): Promise<void> => {
 	try {
 		const jiraHost = req.session.jiraHost;
 
@@ -62,10 +87,10 @@ export default async (req: Request, res: Response, next: NextFunction): Promise<
 		const { client } = res.locals;
 		const subscriptions = await Subscription.getAllForHost(jiraHost);
 		const installations = await Promise.all(
-			subscriptions.map((subscription) =>
-				getInstallation(client, subscription)
-			)
+			subscriptions.map((subscription) => getInstallation(client, subscription))
 		);
+
+		removeFailedConnections(req, installations, jiraHost);
 
 		const connections = installations
 			.filter((response) => !response.error)
@@ -74,21 +99,16 @@ export default async (req: Request, res: Response, next: NextFunction): Promise<
 				isGlobalInstall: data.repository_selection === "all",
 				installedAt: formatDate(data.updated_at),
 				syncState: data.syncState,
-				repoSyncState: data.repoSyncState
+				repoSyncState: data.repoSyncState,
 			}));
-
-		const failedConnections = installations.filter(
-			(response) => !!response.error
-		);
 
 		res.render("jira-configuration.hbs", {
 			host: jiraHost,
 			connections,
-			failedConnections,
-			hasConnections: connections.length > 0 || failedConnections.length > 0,
+			hasConnections: connections.length > 0,
 			APP_URL: process.env.APP_URL,
 			csrfToken: req.csrfToken(),
-			nonce: res.locals.nonce
+			nonce: res.locals.nonce,
 		});
 
 		req.log.info("Jira configuration rendered successfully.");
